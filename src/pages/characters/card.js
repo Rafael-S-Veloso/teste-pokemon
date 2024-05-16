@@ -1,15 +1,15 @@
-import image from "next/image";
+import Image from "next/image";
 
-export default function card({ pokemon }) {
+export default function Card({ pokemon }) {
   return (
     <div>
-      <image
-        src={`https://cdn.traction.one/pokemon/${pokemon.id}`}
-        width="120"
-        height="120"
+      <Image
+        src={`https://cdn.traction.one/pokedex/pokemon/${pokemon.id}.png`}
+        width={120}
+        height={120}
         alt={pokemon.name}
       />
       <h3>{pokemon.name}</h3>
     </div>
-  );
+  )
 }

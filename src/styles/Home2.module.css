@@ -1,28 +1,36 @@
 .container {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
   }
   
   .title {
-    font-size: 50px;
-    color: #000;
-    margin-bottom: 40px;
+    color: #e33d33;
+   text-align: center;
+   font-size: 3em;
+   margin-right: .4em;
+  }
+  .title span {
+color: #000;
+
+  }
+  .pokemon_container {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: center;
+   max-width: 1100px;
+   margin: 0 auto;
   }
   
-  .imageContainer {
-    margin-bottom: 20px;
-  }
-  
-  .pokemonList {
-    display: flex;
-    flex-wrap: wrap;
-   
-  }
-  
-  .pokemonList p {
+  .pokemonList{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     max-width: 1100px;
+    margin: 0 auto;
   }
+ 
   
