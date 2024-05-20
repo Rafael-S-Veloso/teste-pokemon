@@ -3,7 +3,7 @@ import Image from "next/image";
 import Card from "./card";
 
 export async function getStaticProps() {
-  const maxPokemons = 150;
+  const maxPokemons = 151;
   const api = "https://pokeapi.co/api/v2/pokemon";
   const res = await fetch(`${api}?limit=${maxPokemons}`);
   const data = await res.json();
@@ -35,12 +35,12 @@ export default function Home({ pokemons }) {
         />
       </div>
       <div className={styles.pokemon_container}>
-        <div className={styles.pokemonList}>
-          {pokemons &&
-            pokemons.map((pokemon) => (
-              <Card key={pokemon.id} pokemon={pokemon} />
-            ))}
-        </div>
+        {pokemons &&
+          pokemons.map((pokemon) => (
+            <div className={styles.pokemonList} key={pokemon.id}>
+              <Card pokemon={pokemon} />
+            </div>
+          ))}
       </div>
     </>
   );
