@@ -28,7 +28,7 @@ export default function Home({ pokemons }) {
           Poke<span>mons</span>
         </h1>
         <Image
-          src="/images/logoPokebola.png"
+          src="/images/pokemonLogo.png"
           width={50}
           height={50}
           alt="pokebola"
