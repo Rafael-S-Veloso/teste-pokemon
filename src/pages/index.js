@@ -83,10 +83,10 @@ export default function Home() {
       <div className={styles.boxInput}>
         <input
           className={styles.input}
-          placeholder="Search"
+          placeholder="Buscar"
           value={inputValue}
           onChange={handleInputChange}
-          aria-label="Search"
+          aria-label="Buscar"
         />
         <button className={styles.searchButton} onClick={handleSearchClick}>
           <Search />

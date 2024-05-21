@@ -2,6 +2,14 @@
   background-color: #0ed7fb;
 }
 
+.boxInput2 {
+  width: 100px;
+  height: 1px;
+  border-radius: 15px;
+  margin: 100px;
+
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -10,10 +18,14 @@
 }
 
 .title {
-  color: #000;
+  color: #e33d33;
   text-align: center;
-  font-size: 3em;
+  font-size: 5em;
   margin-right: .6em;
+}
+
+.title span {
+  color: black;
 }
 
 .pokemon_container {

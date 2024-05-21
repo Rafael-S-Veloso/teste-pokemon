@@ -24,18 +24,15 @@ export default function Card({ pokemon }) {
   }
 
   return (
-    <div className={styles.Card}>
+    <div className={styles.Card} onClick={handleOpenModal}>
       <Image
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
-        width={120}
-        height={120}
+        width={150}
+        height={100}
         alt={`Imagem do Pokémon ${pokemon.name}`}
       />
       <p className={styles.id}>#{pokemon.id}</p>
       <h3 className={styles.title}>{pokemon.name}</h3>
-      <button className={styles.btn} onClick={handleOpenModal}>
-        Detalhes
-      </button>
 
       {isModalOpen && (
         <div className={styles.modalOverlay} onClick={handleOverlayClick}>
@@ -43,7 +40,6 @@ export default function Card({ pokemon }) {
             <button className={styles.closeBtn} onClick={handleCloseModal}>
               X
             </button>
-            <h2>Detalhes do Pokémon</h2>
             <p>ID: {pokemon.id}</p>
             <p>Nome: {pokemon.name}</p>
           </div>
