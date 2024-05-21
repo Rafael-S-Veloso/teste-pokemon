@@ -1,3 +1,13 @@
+.boxImg {
+  width: 250px;
+  height: 220px;
+}
+
+.boxImg img {
+  width: 100%;
+  height: auto;
+}
+
 .modalBackdrop {
   position: fixed;
   top: 0;

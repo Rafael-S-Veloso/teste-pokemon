@@ -20,10 +20,12 @@ const Modal = ({ isVisible, onClose, pokemonData }) => {
         {pokemonData ? (
           <div>
             <h2>{pokemonData.name}</h2>
-            <img
-              src={pokemonData.sprites.front_default}
-              alt={pokemonData.name}
-            />
+            <div className={styles.boxImg}>
+              <img
+                src={pokemonData.sprites.front_default}
+                alt={pokemonData.name}
+              />
+            </div>
             <p>Height: {pokemonData.height}</p>
             <p>Weight: {pokemonData.weight}</p>
             <p>Base Experience: {pokemonData.base_experience}</p>

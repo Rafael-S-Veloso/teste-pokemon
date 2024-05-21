@@ -1,4 +1,4 @@
-import styles from "@/styles/home2.module.css";
+import styles from "@/styles/Home2.module.css";
 import Image from "next/image";
 import Card from "./card";
 
@@ -22,13 +22,13 @@ export async function getStaticProps() {
 
 export default function Home({ pokemons }) {
   return (
-    <>
+    <div className={styles.contant}>
       <div className={styles.container}>
         <h1 className={styles.title}>
           Poke<span>mons</span>
         </h1>
         <Image
-          src="/images/pokemonLogo.png"
+          src="/image/POKEBOLA.png"
           width={50}
           height={50}
           alt="pokebola"
@@ -42,6 +42,6 @@ export default function Home({ pokemons }) {
             </div>
           ))}
       </div>
-    </>
+    </div>
   );
 }
