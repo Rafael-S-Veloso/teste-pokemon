@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import styles from "@/styles/Home2.module.css";
 import Image from "next/image";
 import Card from "./card";
@@ -21,6 +22,17 @@ export async function getStaticProps() {
 }
 
 export default function Home({ pokemons }) {
+  const [search, setSearch] = useState("");
+  const [filteredPokemons, setFilteredPokemons] = useState(pokemons);
+
+  useEffect(() => {
+    setFilteredPokemons(
+      pokemons.filter((pokemon) =>
+        pokemon.name.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  }, [search, pokemons]);
+
   return (
     <div className={styles.contant}>
       <div className={styles.container}>
@@ -33,14 +45,20 @@ export default function Home({ pokemons }) {
           height={50}
           alt="pokebola"
         />
+        <input
+          className={styles.input}
+          placeholder="Search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          aria-label="Search"
+        />
       </div>
       <div className={styles.pokemon_container}>
-        {pokemons &&
-          pokemons.map((pokemon) => (
-            <div className={styles.pokemonList} key={pokemon.id}>
-              <Card pokemon={pokemon} />
-            </div>
-          ))}
+        {filteredPokemons.map((pokemon) => (
+          <div className={styles.pokemonList} key={pokemon.id}>
+            <Card pokemon={pokemon} />
+          </div>
+        ))}
       </div>
     </div>
   );
