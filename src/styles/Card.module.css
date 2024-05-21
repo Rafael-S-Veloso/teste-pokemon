@@ -22,14 +22,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .Card .title {
     text-transform: capitalize;
     margin-bottom: 1em;
     font-size: 1.2em;
-
 }
 
 .Card .btn {
@@ -45,5 +43,4 @@
 .Card .btn:hover {
     background-color: #e33d33;
     color: #fff;
-
 }
