@@ -30,17 +30,6 @@
     font-size: 1.2em;
 }
 
-.Card .btn {
-    text-decoration: none;
-    background-color: #fff;
-    color: #222;
-    padding: .3em 0.1em;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: 0.4s
-}
-
-.Card .btn:hover {
-    background-color: #e33d33;
-    color: #fff;
+.Card span {
+    cursor: pointer;
 }

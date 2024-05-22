@@ -2,41 +2,7 @@ import { useState } from "react";
 import { Search } from "@/assets/icon/Search";
 import styles from "@/styles/Home.module.css";
 import { useRouter } from "next/router";
-
-const Modal = ({ isVisible, onClose, pokemonData }) => {
-  if (!isVisible) return null;
-
-  return (
-    <div
-      className={styles.modalBackdrop}
-      onClick={onClose}
-      aria-modal="true"
-      role="dialog"
-    >
-      <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-        <button onClick={onClose} aria-label="Close modal">
-          Close
-        </button>
-        {pokemonData ? (
-          <div>
-            <h2>{pokemonData.name}</h2>
-            <div className={styles.boxImg}>
-              <img
-                src={pokemonData.sprites.front_default}
-                alt={pokemonData.name}
-              />
-            </div>
-            <p>Height: {pokemonData.height}</p>
-            <p>Weight: {pokemonData.weight}</p>
-            <p>Base Experience: {pokemonData.base_experience}</p>
-          </div>
-        ) : (
-          <p>Loading...</p>
-        )}
-      </div>
-    </div>
-  );
-};
+import Modal from "@/components/Modal/Modal";
 
 export default function Home() {
   const router = useRouter();

@@ -33,18 +33,6 @@ export default function Card({ pokemon }) {
       />
       <p className={styles.id}>#{pokemon.id}</p>
       <h3 className={styles.title}>{pokemon.name}</h3>
-
-      {isModalOpen && (
-        <div className={styles.modalOverlay} onClick={handleOverlayClick}>
-          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-            <button className={styles.closeBtn} onClick={handleCloseModal}>
-              X
-            </button>
-            <p>ID: {pokemon.id}</p>
-            <p>Nome: {pokemon.name}</p>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
