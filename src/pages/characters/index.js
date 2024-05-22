@@ -64,19 +64,18 @@ export default function Home({ pokemons }) {
         </h1>
         <Image
           src="/image/POKEBOLA.png"
-          width={60}
-          height={60}
+          width={75}
+          height={75}
           alt="pokebola"
         />
-        <div className={styles.boxInput2}>
-          <input
-            className={styles.input}
-            placeholder="Buscar Pokemon"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            aria-label="Buscar Pokemon"
-          />
-        </div>
+
+        <input
+          className={styles.input}
+          placeholder="Buscar Pokemon"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          aria-label="Buscar Pokemon"
+        />
       </div>
       <div className={styles.pokemon_container}>
         {filteredPokemons.map((pokemon) => (

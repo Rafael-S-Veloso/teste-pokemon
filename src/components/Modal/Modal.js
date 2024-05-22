@@ -14,7 +14,7 @@ const Modal = ({ isVisible, onClose, pokemonData }) => {
           X
         </span>
         {pokemonData ? (
-          <div>
+          <div className={styles.info}>
             <h2>{pokemonData.name}</h2>
             <div className={styles.boxImg}>
               <img

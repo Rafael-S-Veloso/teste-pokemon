@@ -2,14 +2,6 @@
   background-color: #0ed7fb;
 }
 
-.boxInput2 {
-  width: 100px;
-  height: 1px;
-  border-radius: 15px;
-  margin: 100px;
-
-}
-
 .container {
   display: flex;
   justify-content: center;
@@ -20,8 +12,9 @@
 .title {
   color: #e33d33;
   text-align: center;
-  font-size: 5em;
+  font-size: 7em;
   margin-right: .6em;
+  margin-top: 45px;
 }
 
 .title span {
@@ -38,8 +31,16 @@
 }
 
 .input {
-  height: 50px;
-  width: 300px;
-  border-radius: 10px;
+  display: flex;
+  height: 60px;
+  width: 350px;
+  border-radius: 20px;
+  margin: 100px;
+  margin-top: 110px;
+  border: none;
+}
 
+.input::placeholder {
+  color: #e33d33;
+  font-size: 20px;
 }

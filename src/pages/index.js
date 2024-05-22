@@ -9,6 +9,7 @@ export default function Home() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [pokemonData, setPokemonData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSearchButtonClick = () => {
     router.push("/characters");
@@ -20,6 +21,7 @@ export default function Home() {
 
   const handleSearchClick = async () => {
     if (inputValue.trim() !== "") {
+      setIsLoading(true);
       try {
         const response = await fetch(
           `https://pokeapi.co/api/v2/pokemon/${inputValue.toLowerCase()}`
@@ -33,9 +35,17 @@ export default function Home() {
       } catch (error) {
         console.error("Error fetching Pokémon data:", error);
         alert("Pokémon not found. Please try again.");
+      } finally {
+        setIsLoading(false);
       }
     } else {
       alert("Please enter a Pokémon name or ID.");
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearchClick();
     }
   };
 
@@ -52,10 +62,15 @@ export default function Home() {
           placeholder="Buscar"
           value={inputValue}
           onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
           aria-label="Buscar"
         />
-        <button className={styles.searchButton} onClick={handleSearchClick}>
-          <Search />
+        <button
+          className={styles.searchButton}
+          onClick={handleSearchClick}
+          disabled={isLoading}
+        >
+          {isLoading ? "Loading..." : <Search />}
         </button>
       </div>
       <button className={styles.button} onClick={handleSearchButtonClick}>
