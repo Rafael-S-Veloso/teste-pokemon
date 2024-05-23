@@ -1,5 +1,6 @@
 .contant {
   background-color: #0ed7fb;
+  height: 100vh;
 }
 
 .container {
@@ -7,6 +8,8 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 2em;
+
+
 }
 
 .title {
@@ -24,20 +27,22 @@
 .pokemon_container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  max-width: 1100px;
+  padding: 0 100px;
   margin: 0 auto;
+  background-color: #0ed7fb;
 }
 
 .input {
-  display: flex;
+
   height: 60px;
   width: 350px;
   border-radius: 20px;
   margin: 100px;
   margin-top: 110px;
   border: none;
+  padding: 8px 16px;
 }
 
 .input::placeholder {

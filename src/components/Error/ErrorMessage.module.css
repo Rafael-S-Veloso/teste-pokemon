@@ -1,0 +1,10 @@
+/* src/styles/ErrorMessage.module.css */
+.error {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 50px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+}

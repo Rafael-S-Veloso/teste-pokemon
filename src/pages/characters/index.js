@@ -3,6 +3,7 @@ import styles from "@/styles/Home2.module.css";
 import Image from "next/image";
 import Card from "./card";
 import Modal from "@/components/Modal/Modal";
+import ErrorMessage from "@/components/Error/Error";
 
 export async function getStaticProps() {
   const maxPokemons = 151;
@@ -40,14 +41,11 @@ export default function Home({ pokemons }) {
   };
 
   useEffect(() => {
-    setFilteredPokemons(
-      pokemons.filter((pokemon) =>
-        pokemon.name.toLowerCase().includes(search.toLowerCase())
-      )
+    const filtered = pokemons.filter((pokemon) =>
+      pokemon.name.toLowerCase().includes(search.toLowerCase())
     );
+    setFilteredPokemons(filtered);
   }, [search, pokemons]);
-
-  console.log(pokemons, "<===");
 
   const pokemonLegends = async (id) => {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -78,15 +76,19 @@ export default function Home({ pokemons }) {
         />
       </div>
       <div className={styles.pokemon_container}>
-        {filteredPokemons.map((pokemon) => (
-          <div
-            className={styles.pokemonList}
-            key={pokemon.id}
-            onClick={() => pokemonLegends(pokemon.id)}
-          >
-            <Card pokemon={pokemon} />
-          </div>
-        ))}
+        {filteredPokemons.length > 0 ? (
+          filteredPokemons.map((pokemon) => (
+            <div
+              className={styles.pokemonList}
+              key={pokemon.id}
+              onClick={() => pokemonLegends(pokemon.id)}
+            >
+              <Card pokemon={pokemon} />
+            </div>
+          ))
+        ) : (
+          <ErrorMessage message="Não existe o Pokémon procurado" />
+        )}
       </div>
       {isModalVisible && (
         <Modal
