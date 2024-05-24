@@ -4,6 +4,7 @@ import Image from "next/image";
 import Card from "./card";
 import Modal from "@/components/Modal/Modal";
 import ErrorMessage from "@/components/Error/Error";
+import Link from "next/link";
 
 export async function getStaticProps() {
   const maxPokemons = 151;
@@ -58,7 +59,9 @@ export default function Home({ pokemons }) {
     <div className={styles.contant}>
       <div className={styles.container}>
         <h1 className={styles.title}>
-          Poke<span>mons</span>
+          <Link href="/">
+            Poke<span>mons</span>
+          </Link>
         </h1>
         <Image
           src="/image/POKEBOLA.png"

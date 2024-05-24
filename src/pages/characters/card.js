@@ -31,7 +31,7 @@ export default function Card({ pokemon }) {
         height={100}
         alt={`Imagem do Pokémon ${pokemon.name}`}
       />
-      <p className={styles.id}>#{pokemon.id}</p>
+
       <h3 className={styles.title}>{pokemon.name}</h3>
     </div>
   );

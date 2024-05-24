@@ -3,6 +3,7 @@ import { Search } from "@/assets/icon/Search";
 import styles from "@/styles/Home.module.css";
 import { useRouter } from "next/router";
 import Modal from "@/components/Modal/Modal";
+import ErrorMessage from "@/components/Error/Error";
 
 export default function Home() {
   const router = useRouter();
@@ -10,6 +11,7 @@ export default function Home() {
   const [inputValue, setInputValue] = useState("");
   const [pokemonData, setPokemonData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSearchButtonClick = () => {
     router.push("/characters");
@@ -32,9 +34,9 @@ export default function Home() {
         const data = await response.json();
         setPokemonData(data);
         setIsModalVisible(true);
+        setError(false);
       } catch (error) {
-        console.error("Error fetching Pokémon data:", error);
-        alert("Pokémon not found. Please try again.");
+        setError(true);
       } finally {
         setIsLoading(false);
       }
@@ -53,7 +55,7 @@ export default function Home() {
     setIsModalVisible(false);
     setPokemonData(null);
   };
-
+  console.log(pokemonData, "pokemonData");
   return (
     <div className={styles.container}>
       <div className={styles.boxInput}>
@@ -70,7 +72,7 @@ export default function Home() {
           onClick={handleSearchClick}
           disabled={isLoading}
         >
-          {isLoading ? "Loading..." : <Search />}
+          <Search />
         </button>
       </div>
       <button className={styles.button} onClick={handleSearchButtonClick}>
@@ -81,6 +83,7 @@ export default function Home() {
         onClose={handleCloseModal}
         pokemonData={pokemonData}
       />
+      {error && <ErrorMessage message="Não existe o Pokémon procurado" />}
     </div>
   );
 }
