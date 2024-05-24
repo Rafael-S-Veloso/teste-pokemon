@@ -91,7 +91,7 @@ export default function Home({ pokemons }) {
           ))
         ) : (
           <div className={styles.error}>
-            <ErrorMessage message="Não existe o Pokémon procurado" />
+            <ErrorMessage message="Não existe o Pokémon procurado!" />
           </div>
         )}
       </div>
