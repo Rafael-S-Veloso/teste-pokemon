@@ -90,7 +90,9 @@ export default function Home({ pokemons }) {
             </div>
           ))
         ) : (
-          <ErrorMessage message="Não existe o Pokémon procurado" />
+          <div className={styles.error}>
+            <ErrorMessage message="Não existe o Pokémon procurado" />
+          </div>
         )}
       </div>
       {isModalVisible && (

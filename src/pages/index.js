@@ -75,6 +75,7 @@ export default function Home() {
           <Search />
         </button>
       </div>
+
       <button className={styles.button} onClick={handleSearchButtonClick}>
         All Pokemons
       </button>

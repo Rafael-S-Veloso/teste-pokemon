@@ -49,3 +49,8 @@
   color: #e33d33;
   font-size: 20px;
 }
+
+.error {
+  position: fixed;
+  bottom: 50px;
+}
